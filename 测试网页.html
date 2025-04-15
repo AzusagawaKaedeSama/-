@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上海二次元购物地点推荐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #8E2DE2, #4A00E0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .locations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .location-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .location-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 60%);
+        }
+        
+        .card-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-features {
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+            border-radius: 50%;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .distances {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #f6f9fc, #eef1f5);
+            padding: 15px;
+            border-radius: 12px;
+        }
+        
+        .distance {
+            text-align: center;
+        }
+        
+        .distance-title {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .distance-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #8a2387, #e94057, #f27121);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            color: #555;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .locations {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>上海二次元购物指南</h1>
+            <p class="subtitle">为上海交大闵行校区和复旦大学江湾校区的同学精选的二次元爱好者购物天堂，集合咖啡文化与二次元周边</p>
+        </header>
+        
+        <div class="locations">
+            <div class="location-card">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Zhongshan_Park.jpg/2560px-Zhongshan_Park.jpg" alt="龙之梦购物中心">
+                    <div class="card-gradient"></div>
+                    <h2 class="card-title">龙之梦购物中心</h2>
+                </div>
+                <div class="card-content">
+                    <div class="tag-container">
+                        <span class="tag">二次元社区</span>
+                        <span class="tag">咖啡店</span>
+                        <span class="tag">综合商场</span>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <div class="feature-icon">📍</div>
+                            <div>长宁区长宁路1018号（中山公园地铁站）</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎭</div>
+                            <div>水豚大怪兽二次元综合社区（红区3层）</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">☕</div>
+                            <div>星巴克、瑞幸咖啡、Manner Coffee等</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🚇</div>
+                            <div>地铁2/3/4号线中山公园站直达</div>
+                        </div>
+                    </div>
+                    <div class="distances">
+                        <div class="distance">
+                            <div class="distance-title">距交大闵行校区</div>
+                            <div class="distance-value">28.4公里 / 45分钟</div>
+                        </div>
+                        <div class="distance">
+                            <div class="distance-title">距复旦江湾校区</div>
+                            <div class="distance-value">23.1公里 / 37分钟</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/IAPM_%2835076727043%29.jpg" alt="环贸iapm商场">
+                    <div class="card-gradient"></div>
+                    <h2 class="card-title">环贸iapm商场</h2>
+                </div>
+                <div class="card-content">
+                    <div class="tag-container">
+                        <span class="tag">高端商场</span>
+                        <span class="tag">咖啡文化</span>
+                        <span class="tag">周边二次元店</span>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <div class="feature-icon">📍</div>
+                            <div>黄浦区淮海中路999号</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎭</div>
+                            <div>周边3公里内有聚次元GOODS等二次元店铺</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">☕</div>
+                            <div>星巴克、Peet's Coffee、Manner Coffee等</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🚇</div>
+                            <div>地铁1/10/12号线陕西南路站直达</div>
+                        </div>
+                    </div>
+                    <div class="distances">
+                        <div class="distance">
+                            <div class="distance-title">距交大闵行校区</div>
+                            <div class="distance-value">26.5公里 / 49分钟</div>
+                        </div>
+                        <div class="distance">
+                            <div class="distance-title">距复旦江湾校区</div>
+                            <div class="distance-value">17.9公里 / 38分钟</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-card">
+                <div class="card-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/New_World_City-20220828.jpg/1920px-New_World_City-20220828.jpg" alt="新世界城">
+                    <div class="card-gradient"></div>
+                    <h2 class="card-title">新世界城</h2>
+                </div>
+                <div class="card-content">
+                    <div class="tag-container">
+                        <span class="tag">二次元店铺</span>
+                        <span class="tag">市中心</span>
+                        <span class="tag">便捷交通</span>
+                    </div>
+                    <div class="card-features">
+                        <div class="feature">
+                            <div class="feature-icon">📍</div>
+                            <div>黄浦区南京西路2号</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎭</div>
+                            <div>聚次元GOODS、二次三番店铺等</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">☕</div>
+                            <div>周边咖啡店众多</div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🚇</div>
+                            <div>地铁1/2/8号线人民广场站直达</div>
+                        </div>
+                    </div>
+                    <div class="distances">
+                        <div class="distance">
+                            <div class="distance-title">距交大闵行校区</div>
+                            <div class="distance-value">31.8公里 / 48分钟</div>
+                        </div>
+                        <div class="distance">
+                            <div class="distance-title">距复旦江湾校区</div>
+                            <div class="distance-value">17.9公里 / 31分钟</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 上海二次元爱好者指南 | 为交大和复旦的同学精心筛选</p>
+        </footer>
+    </div>
+</body>
+</html>
