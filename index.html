@@ -3,379 +3,545 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>上海二次元购物地点推荐</title>
+    <title>上海交通大学智能用电网络团队 - 2026级硕博士招生</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        :root {
+            --primary-color: #0055A2; /* 交大蓝 */
+            --secondary-color: #26A0DA; /* 亮蓝色 */
+            --accent-color: #52C41A; /* 绿色 - 象征新能源 */
+            --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --card-gradient: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
         }
         
         body {
-            background: linear-gradient(135deg, #e0f7fa 0%, #3f51b5 100%);
+            font-family: "Microsoft YaHei", "Segoe UI", Tahoma, sans-serif;
+            background-color: #f8f9fa;
             color: #333;
-            min-height: 100vh;
-            padding: 40px 0;
+        }
+        
+        .hero-section {
+            background-image: var(--gradient-bg);
+            color: white;
+            padding: 5rem 0;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
         }
         
-        body::before, body::after {
-            content: '';
+        .hero-section::before {
+            content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.4;
-            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-vector/abstract-network-communications-background_1017-23324.jpg');
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 0;
         }
         
-        body::before {
-            background: #4fc3f7;
-            top: -100px;
-            left: -100px;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        body::after {
-            background: #0d47a1;
-            bottom: -100px;
-            right: -100px;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, 30px) scale(1.1); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .hero-content {
             position: relative;
             z-index: 1;
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #2196f3, #0d47a1);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        .locations {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .location-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-        }
-        
-        .location-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(13, 71, 161, 0.25);
-        }
-        
-        .card-image {
-            height: 200px;
+        .section-title {
             position: relative;
-            overflow: hidden;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--primary-color);
         }
         
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .location-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-        
-        .card-gradient {
+        .section-title::after {
+            content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 100%;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-bg);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 35, 80, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+            background-image: var(--card-gradient);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
         }
         
-        .card-title {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background: var(--gradient-bg);
             color: white;
-            font-size: 1.5rem;
+            border-bottom: none;
             font-weight: 600;
-            z-index: 1;
+            padding: 1rem;
         }
         
-        .card-content {
-            padding: 25px;
+        .professor-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
         
-        .card-features {
+        .icon-box {
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
         }
         
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            color: #444;
-        }
-        
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
+        .icon-box i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            background: rgba(82, 196, 26, 0.1);
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #29b6f6, #0d47a1);
             border-radius: 50%;
-            color: white;
-            font-size: 14px;
         }
         
-        .distances {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-            background: linear-gradient(135deg, #e1f5fe, #bbdefb);
-            padding: 15px;
-            border-radius: 12px;
+        .professor-card .social-links {
+            margin-top: 15px;
         }
         
-        .distance {
-            text-align: center;
+        .professor-card .social-links a {
+            color: var(--primary-color);
+            margin-right: 10px;
+            transition: color 0.3s;
         }
         
-        .distance-title {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        
-        .distance-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-        
-        .tag {
-            background: linear-gradient(135deg, #2196f3, #1565c0, #0d47a1);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .professor-card .social-links a:hover {
+            color: var(--accent-color);
         }
         
         footer {
-            text-align: center;
-            margin-top: 80px;
-            color: #555;
-            padding: 20px;
-            font-size: 0.9rem;
+            background-image: var(--gradient-bg);
+            color: white;
+            padding: 2rem 0;
         }
         
-        @media (max-width: 768px) {
-            .locations {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
+        .btn-primary {
+            background-image: var(--gradient-bg);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 85, 162, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 85, 162, 0.4);
+        }
+        
+        .research-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+        
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .shape-2 {
+            bottom: 20%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            background: var(--secondary-color);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>上海二次元购物指南</h1>
-            <p class="subtitle">为上海交大闵行校区和复旦大学江湾校区的同学精选的二次元爱好者购物天堂，集合咖啡文化与二次元周边</p>
-        </header>
-        
-        <div class="locations">
-            <div class="location-card">
-                <div class="card-image">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Zhongshan_Park.jpg/2560px-Zhongshan_Park.jpg" alt="龙之梦购物中心">
-                    <div class="card-gradient"></div>
-                    <h2 class="card-title">龙之梦购物中心</h2>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-image: var(--gradient-bg);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-lightning-charge-fill"></i> 上海交通大学智能用电网络团队
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#professors">导师团队</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#research">研究方向</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#requirements">招生要求</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主视觉区域 -->
+    <section id="home" class="hero-section">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-4">智能电力系统前沿团队</h1>
+                    <h2 class="h3 mb-4">聚焦智能电力系统最前沿，打造能源领域创新型人才</h2>
+                    <p class="lead mb-5">【新终端·新平台·新机制·新调度】何光宇教授团队招收2026级硕博士</p>
+                    <a href="#contact" class="btn btn-light btn-lg me-3">申请加入</a>
+                    <a href="#research" class="btn btn-outline-light btn-lg">了解研究方向</a>
                 </div>
-                <div class="card-content">
-                    <div class="tag-container">
-                        <span class="tag">二次元社区</span>
-                        <span class="tag">咖啡店</span>
-                        <span class="tag">综合商场</span>
-                    </div>
-                    <div class="card-features">
-                        <div class="feature">
-                            <div class="feature-icon">📍</div>
-                            <div>长宁区长宁路1018号（中山公园地铁站）</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🎭</div>
-                            <div>水豚大怪兽二次元综合社区（红区3层）</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">☕</div>
-                            <div>星巴克、瑞幸咖啡、Manner Coffee等</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🚇</div>
-                            <div>地铁2/3/4号线中山公园站直达</div>
-                        </div>
-                    </div>
-                    <div class="distances">
-                        <div class="distance">
-                            <div class="distance-title">距交大闵行校区</div>
-                            <div class="distance-value">28.4公里 / 45分钟</div>
-                        </div>
-                        <div class="distance">
-                            <div class="distance-title">距复旦江湾校区</div>
-                            <div class="distance-value">23.1公里 / 37分钟</div>
-                        </div>
-                    </div>
+                <div class="col-lg-5">
+                    <img src="https://img.freepik.com/free-vector/isometric-smart-city-concept_23-2148888275.jpg" alt="智能电网示意图" class="img-fluid rounded-3 shadow">
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- 导师团队 -->
+    <section id="professors" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">导师团队</h2>
+            <p class="text-center mb-5">由行业领军人物组成的优秀导师团队，为您的科研之路保驾护航</p>
             
-            <div class="location-card">
-                <div class="card-image">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/IAPM_%2835076727043%29.jpg" alt="环贸iapm商场">
-                    <div class="card-gradient"></div>
-                    <h2 class="card-title">环贸iapm商场</h2>
-                </div>
-                <div class="card-content">
-                    <div class="tag-container">
-                        <span class="tag">高端商场</span>
-                        <span class="tag">咖啡文化</span>
-                        <span class="tag">周边二次元店</span>
-                    </div>
-                    <div class="card-features">
-                        <div class="feature">
-                            <div class="feature-icon">📍</div>
-                            <div>黄浦区淮海中路999号</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🎭</div>
-                            <div>周边3公里内有聚次元GOODS等二次元店铺</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">☕</div>
-                            <div>星巴克、Peet's Coffee、Manner Coffee等</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🚇</div>
-                            <div>地铁1/10/12号线陕西南路站直达</div>
-                        </div>
-                    </div>
-                    <div class="distances">
-                        <div class="distance">
-                            <div class="distance-title">距交大闵行校区</div>
-                            <div class="distance-value">26.5公里 / 49分钟</div>
-                        </div>
-                        <div class="distance">
-                            <div class="distance-title">距复旦江湾校区</div>
-                            <div class="distance-value">17.9公里 / 38分钟</div>
+            <div class="row g-4">
+                <!-- 何光宇教授 -->
+                <div class="col-lg-4">
+                    <div class="card professor-card h-100">
+                        <div class="card-body text-center">
+                            <img src="https://eei.sjtu.edu.cn/Web/Data/QR/Faculty_img_56.jpg" alt="何光宇教授" class="professor-img mb-3">
+                            <h3 class="card-title">何光宇</h3>
+                            <p class="card-subtitle mb-3 text-muted">长聘教授，博士生导师</p>
+                            <p class="card-text">
+                                IEEE高级会员、IET Fellow，中国电机工程学会高级会员，长期致力于智能电力系统与智能电网领域的前沿研究。
+                                清华大学博士，曾在清华大学任教十余年，并作为高级访问学者赴法国IDEA研究所从事微网与虚拟电厂研究。
+                            </p>
+                            <div class="social-links">
+                                <a href="https://eei.sjtu.edu.cn/faculty-detail.php?id=56" target="_blank" title="个人主页">
+                                    <i class="bi bi-globe"></i>
+                                </a>
+                                <a href="mailto:gyhe@sjtu.edu.cn" title="发送邮件">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="location-card">
-                <div class="card-image">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/New_World_City-20220828.jpg/1920px-New_World_City-20220828.jpg" alt="新世界城">
-                    <div class="card-gradient"></div>
-                    <h2 class="card-title">新世界城</h2>
+                
+                <!-- 范帅博士 -->
+                <div class="col-lg-4">
+                    <div class="card professor-card h-100">
+                        <div class="card-body text-center">
+                            <img src="https://eei.sjtu.edu.cn/Web/Data/QR/Faculty_img_1406.jpg" alt="范帅博士" class="professor-img mb-3">
+                            <h3 class="card-title">范帅</h3>
+                            <p class="card-subtitle mb-3 text-muted">副研究员，硕士生导师</p>
+                            <p class="card-text">
+                                上海交通大学电气工程系副研究员，长期致力于智能电力系统与智能电网领域的前沿研究，
+                                曾获国家留学基金委公派赴美国Southern Methodist University进行访学研究。
+                                主要聚焦虚拟电厂自趋优运行和大规模需求响应等关键技术。
+                            </p>
+                            <div class="social-links">
+                                <a href="https://eei.sjtu.edu.cn/faculty-detail.php?id=1406" target="_blank" title="个人主页">
+                                    <i class="bi bi-globe"></i>
+                                </a>
+                                <a href="mailto:fanshuai@sjtu.edu.cn" title="发送邮件">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <div class="tag-container">
-                        <span class="tag">二次元店铺</span>
-                        <span class="tag">市中心</span>
-                        <span class="tag">便捷交通</span>
-                    </div>
-                    <div class="card-features">
-                        <div class="feature">
-                            <div class="feature-icon">📍</div>
-                            <div>黄浦区南京西路2号</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🎭</div>
-                            <div>聚次元GOODS、二次三番店铺等</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">☕</div>
-                            <div>周边咖啡店众多</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">🚇</div>
-                            <div>地铁1/2/8号线人民广场站直达</div>
-                        </div>
-                    </div>
-                    <div class="distances">
-                        <div class="distance">
-                            <div class="distance-title">距交大闵行校区</div>
-                            <div class="distance-value">31.8公里 / 48分钟</div>
-                        </div>
-                        <div class="distance">
-                            <div class="distance-title">距复旦江湾校区</div>
-                            <div class="distance-value">17.9公里 / 31分钟</div>
+                
+                <!-- 黄任可博士 -->
+                <div class="col-lg-4">
+                    <div class="card professor-card h-100">
+                        <div class="card-body text-center">
+                            <img src="https://gift.sjtu.edu.cn/hrk/HRKSJTUF.jpg" alt="黄任可博士" class="professor-img mb-3">
+                            <h3 class="card-title">黄任可</h3>
+                            <p class="card-subtitle mb-3 text-muted">副教授，IEEE高级会员</p>
+                            <p class="card-text">
+                                上海交通大学溥渊未来技术学院副教授，在复杂能源系统建模、仿真与控制领域拥有深厚的研究背景。
+                                美国佐治亚理工学院电气工程博士，曾任美国太平洋西北国家实验室主任电气工程师，
+                                获多项国际国内重要奖项。
+                            </p>
+                            <div class="social-links">
+                                <a href="https://gift.sjtu.edu.cn/hrk/main.htm" target="_blank" title="个人主页">
+                                    <i class="bi bi-globe"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer>
-            <p>© 2023 上海二次元爱好者指南 | 为交大和复旦的同学精心筛选</p>
-        </footer>
-    </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="research" class="py-5" style="background-color: #f0f8ff;">
+        <div class="container">
+            <h2 class="section-title text-center">研究方向</h2>
+            <p class="text-center mb-5">聚焦"四新"智能电力系统创新技术</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="bi bi-cpu research-icon"></i>
+                            <h3 class="h4 mb-3">新终端</h3>
+                            <p>智能用电设备/互动智能体/多智能体协同（具身智能）</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="bi bi-cloud research-icon"></i>
+                            <h3 class="h4 mb-3">新平台</h3>
+                            <p>自趋优智慧园区平台/主动虚拟电厂平台/需求响应平台</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="bi bi-graph-up-arrow research-icon"></i>
+                            <h3 class="h4 mb-3">新机制</h3>
+                            <p>新型电力市场/电力互替品/准线需求响应（节点-子准线体系）</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center p-4">
+                        <div class="card-body">
+                            <i class="bi bi-gear research-icon"></i>
+                            <h3 class="h4 mb-3">新调度</h3>
+                            <p>源网荷储双侧协同优化/新能源承载力在线评估/电网虚拟增容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学校介绍 -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">学校介绍</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://img.freepik.com/free-photo/aerial-view-shanghai-jiao-tong-university-minhang-campus_1417-5204.jpg" alt="上海交通大学" class="img-fluid rounded-3 shadow-lg">
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4">
+                        <h3 class="mb-4">顶尖电气学科 | 国际领先电网技术</h3>
+                        <div class="icon-box">
+                            <i class="bi bi-award"></i>
+                            <div>
+                                <h4>教育部首批"双一流"电气学科</h4>
+                                <p>2018年首批入选国家电气工程"双一流"学科建设名单</p>
+                            </div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="bi bi-building"></i>
+                            <div>
+                                <h4>国家能源智能电网研发中心</h4>
+                                <p>拥有省级重点实验室/工程中心4个</p>
+                            </div>
+                        </div>
+                        <div class="icon-box">
+                            <i class="bi bi-lightning"></i>
+                            <div>
+                                <h4>新能源并网技术国际领跑者</h4>
+                                <p>在新能源并网、智能配用电系统、智能电网信息及通信技术的研究处于国际先进水平</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 招生要求 -->
+    <section id="requirements" class="py-5" style="background-color: #f0f8ff;">
+        <div class="container">
+            <h2 class="section-title text-center">招生要求</h2>
+            <p class="text-center mb-5">我们期待与您共同探索智能电力系统的未来</p>
+            
+            <div class="row g-4">
+                <!-- 硬条件 -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0">硬条件</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    电气/自动化/计算机/数学等相关专业
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    数学建模能力突出（优化/博弈论/随机过程……）
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                    熟悉Python/MATLAB/Gurobi/OpenDSS/JAVA等工具链
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 软特质 -->
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0">软特质</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-star-fill text-warning me-2"></i>
+                                    能快速迭代思维，适应学科交叉挑战
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-star-fill text-warning me-2"></i>
+                                    渴望成为新型电力系统建设核心力量
+                                </li>
+                                <li class="list-group-item bg-transparent">
+                                    <i class="bi bi-star-fill text-warning me-2"></i>
+                                    对"互联网+能源"有颠覆性想象
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">联系我们</h2>
+            <p class="text-center mb-5">感兴趣的同学请发送个人简历与成绩单至以下邮箱</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <div class="mb-4 text-center">
+                                <i class="bi bi-envelope-paper-fill" style="font-size: 3rem; color: var(--primary-color);"></i>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person-circle me-3" style="font-size: 1.5rem;"></i>
+                                        <div>
+                                            <h5 class="mb-0">何光宇 教授</h5>
+                                            <p class="mb-0">gyhe@sjtu.edu.cn</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person-circle me-3" style="font-size: 1.5rem;"></i>
+                                        <div>
+                                            <h5 class="mb-0">范帅 副研究员</h5>
+                                            <p class="mb-0">fanshuai@sjtu.edu.cn</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person-circle me-3" style="font-size: 1.5rem;"></i>
+                                        <div>
+                                            <h5 class="mb-0">黄任可 副教授</h5>
+                                            <p class="mb-0">huangrenke@sjtu.edu.cn</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info">
+                                <h5 class="alert-heading">注意事项：</h5>
+                                <ul class="mb-0">
+                                    <li>邮件主题请注明"硕士/博士申请+名字"</li>
+                                    <li>避免使用qq邮箱</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <a href="mailto:gyhe@sjtu.edu.cn?subject=博士申请" class="btn btn-primary me-2">发送申请邮件</a>
+                                <a href="#home" class="btn btn-outline-secondary">返回顶部</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="text-center py-4">
+        <div class="container">
+            <p>© 2024 上海交通大学电子信息与电气工程学院 - 智能用电网络团队</p>
+            <p>
+                <i class="bi bi-geo-alt-fill"></i> 上海市闵行区东川路800号
+                <i class="bi bi-telephone-fill ms-3"></i> 021-XXXXXXXX
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> 
